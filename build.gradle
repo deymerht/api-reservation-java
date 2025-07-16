@@ -23,6 +23,11 @@ repositories {
 	mavenCentral()
 }
 
+// Task para validar OpenAPI con Redocly CLI
+task lintOpenApi(type: Exec) {
+	commandLine 'npx', '@redocly/cli', 'lint', 'src/main/resources/openapi.yaml'
+}
+
 ext {
 	resilience4jVersion = '2.2.0'
 }

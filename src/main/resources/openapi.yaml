@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: API Reservation Example
+  version: 1.0.0
+  description: Ejemplo mínimo de especificación OpenAPI para validación.
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: http://localhost:8080
+security:
+  - ApiKeyAuth: []
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+paths:
+  /ping:
+    get:
+      summary: Ping de prueba
+      operationId: pingTest
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Respuesta exitosa
+        '400':
+          description: Solicitud incorrecta
